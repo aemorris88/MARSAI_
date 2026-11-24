@@ -1,0 +1,62 @@
+# disaster_nav_params.yaml
+# ──────────────────────────────────────────────────────────────────────────────
+# Parameter file for all nodes. Load with:
+#   ros2 launch orchestrator_node disaster_nav.launch.py \
+#     params_file:=$(pwd)/config/disaster_nav_params.yaml
+
+orchestrator:
+  ros__parameters:
+    hipergator_endpoint: "http://hipergator.rc.ufl.edu:8080/v1"
+    hipergator_api_key:  ""                          # set via env or arg
+    plan_interval_sec:   5.0                         # replan check frequency
+
+drone_1:
+  ros__parameters:
+    agent_id:          "drone_1"
+    cruise_altitude:   5.0
+    cruise_speed:      2.0
+    map_resolution:    0.1
+
+drone_2:
+  ros__parameters:
+    agent_id:          "drone_2"
+    cruise_altitude:   7.0                           # higher for wide mapping
+    cruise_speed:      2.5
+    map_resolution:    0.1
+
+go1_a:
+  ros__parameters:
+    agent_id:            "go1_a"
+    nano_url:            "http://localhost:8001"
+    nav_loop_hz:         5.0
+    obstacle_stop_dist:  0.5
+
+go1_b:
+  ros__parameters:
+    agent_id:            "go1_b"
+    nano_url:            "http://localhost:8001"
+    nav_loop_hz:         5.0
+    obstacle_stop_dist:  0.5
+
+go1_c:
+  ros__parameters:
+    agent_id:            "go1_c"
+    nano_url:            "http://localhost:8001"
+    nav_loop_hz:         5.0
+    obstacle_stop_dist:  0.5
+
+# ── Nemotron Super (HiPerGator) settings ────────────────────────────────────
+hipergator:
+  model_name:    "nvidia/Nemotron-3-8B-Chat-4k"    # adjust to your allocation
+  temperature:   0.2
+  max_tokens:    2048
+  timeout_sec:   30.0
+  max_retries:   3
+
+# ── Nemotron Nano (local) settings ──────────────────────────────────────────
+nano:
+  backend:       "ollama"                            # "ollama" | "vllm"
+  model_name:    "nemotron-mini"                     # ollama tag
+  port:          8001
+  temperature:   0.1
+  max_tokens:    512

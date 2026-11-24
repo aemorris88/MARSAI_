@@ -1,0 +1,26 @@
+# Python dependencies for disaster_nav system
+# Install in your ROS2 workspace Python environment:
+#   pip install -r requirements.txt
+
+# ── ROS2 Python dependencies (installed via apt, listed for reference) ────────
+# rclpy                         # ros-humble-rclpy
+# geometry_msgs                 # ros-humble-geometry-msgs
+# nav_msgs                      # ros-humble-nav-msgs
+# sensor_msgs                   # ros-humble-sensor-msgs
+# webots_ros2_driver            # ros-humble-webots-ros2
+
+# ── LLM bridge ────────────────────────────────────────────────────────────────
+requests>=2.31.0
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.6.0
+
+# ── Optional: local Nano via ollama Python SDK ────────────────────────────────
+# ollama>=0.1.8
+
+# ── Optional: vLLM (for local Nano if not using ollama) ───────────────────────
+# vllm>=0.4.0                   # requires CUDA 12.1+
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+numpy>=1.26.0
+pyyaml>=6.0
